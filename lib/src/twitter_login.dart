@@ -66,7 +66,7 @@ class TwitterLogin {
       if (Platform.isIOS) {
         resultURI = await _channel.invokeMethod('authentication', {
           'url': requestToken.authorizeURI,
-          'redirectURL': redirectURI,
+          'redirectURL': Uri.parse(redirectURI).scheme,
         });
       } else if (Platform.isAndroid) {
         final uri = Uri.parse(redirectURI);
